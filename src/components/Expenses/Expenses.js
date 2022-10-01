@@ -16,7 +16,7 @@ const Expenses = (props) => {
         <div>
             <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} />
             <div className="expenses-container">
-                {props.items.map((element) => (<ExpenseItem key={element.id} title={element.title} amount={element.amount} date={element.date.getFullYear()} />))}
+                {props.items.map((element) => (<ExpenseItem key={element.id} title={element.title} amount={element.amount} date={element.date} />))}
             </div>
         </div>
 

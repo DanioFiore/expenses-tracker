@@ -1,0 +1,15 @@
+.form-container{
+    background-color: yellow;
+    margin: 4rem;
+    padding: 1rem;
+}
+
+.input-form__container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.input-form {
+    height: 2rem;
+}

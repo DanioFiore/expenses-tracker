@@ -24,9 +24,21 @@ const Expenses = (props) => {
         return expense.date.getFullYear().toString() === filterDate;
     })
 
+    const [isEditing, setIsEditing] = useState(false)
+
+    const startEditingHandler = (event) => {
+        setIsEditing(true);
+    }
+
+    const stopEditingHandler = (event) => {
+        setIsEditing(false);
+    }
+
     return (
         <div>
-            <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} />
+            {isEditing && <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} stopEditing={stopEditingHandler}/>}
+            {!isEditing && <button onClick={startEditingHandler}>Add Expense</button>}
+            
             <ExpenseFilter onFilterChange={filterChangeHandler} startDate={filterDate}/>
             <div className="expenses-container">
                 {filteredExpenses.map((element) => (<ExpenseItem key={element.id} title={element.title} amount={element.amount} date={element.date} />))}

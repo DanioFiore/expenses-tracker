@@ -40,9 +40,9 @@ const Expenses = (props) => {
             <div className="button__form-container">
                 <h1 className="main-title">EXPENSES TRACKER</h1>
                 <h6 className="main-subtitle">Keep tracked your expenses!</h6>
-                {isEditing && <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} stopEditing={stopEditingHandler}/>}
                 {!isEditing && <button className="new-expense-button" onClick={startEditingHandler}>Add Expense</button>}
             </div>
+            {isEditing && <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} stopEditing={stopEditingHandler}/>}
             <ExpensesChart expenses={filteredExpenses} />
             <ExpenseFilter onFilterChange={filterChangeHandler} startDate={filterDate}/>
             <div className="expenses-container">

@@ -1,7 +1,8 @@
 .form-container{
-    background-color: yellow;
+    background-color: lime;
     margin: 4rem;
     padding: 1rem;
+    border-radius: 30px;
 }
 
 .input-form__container {
@@ -12,4 +13,21 @@
 
 .input-form {
     height: 2rem;
+}
+
+.button-form__submit {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.submit-button {
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: radial-gradient(circle, rgba(233,238,174,1) 0%, rgba(114,226,82,1) 81%);
+}
+
+.cancel-button {
+    background: linear-gradient(90deg, rgba(232,226,127,1) 0%, rgba(253,29,29,1) 100%);
+    padding: 0.5rem;
+    border-radius: 10px;
 }

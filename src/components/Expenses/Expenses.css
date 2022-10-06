@@ -4,6 +4,7 @@
  flex-direction: column;
  margin: 4rem;
  padding: 2rem;
+ border-radius: 30px;
 }
 
 .new-expense-button {
@@ -12,6 +13,12 @@
     background-color: lime;
     border-radius: 10px;
 }
+
+.new-expense-button:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
 
 .button__form-container {
     display: flex;

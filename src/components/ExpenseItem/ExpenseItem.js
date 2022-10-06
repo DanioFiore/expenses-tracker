@@ -6,7 +6,6 @@ const ExpenseItem = (props) => {
         <div className="item-container">
             <div>
                 <ExpenseDate date={props.date} />
-                {/* <h2>{props.date}</h2> */}
             </div>
             <div>
                 <h3>{props.title}</h3>

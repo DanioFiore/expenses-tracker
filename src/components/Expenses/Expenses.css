@@ -6,3 +6,26 @@
  padding: 2rem;
 }
 
+.new-expense-button {
+    padding: 1rem;
+    border: 2px dotted black;
+    background-color: lime;
+    border-radius: 10px;
+}
+
+.button__form-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.main-subtitle {
+    margin: 0 0 2rem 0;
+}
+
+.main-title {
+    background: radial-gradient(circle, rgba(233,238,174,1) 0%, rgba(114,226,82,1) 81%);
+    padding: 1rem;
+    border-radius: 30px;
+}

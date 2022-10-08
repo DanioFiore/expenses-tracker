@@ -1,9 +1,9 @@
-import "./ExpenseItem.css";
+import styles from "./ExpenseItem.module.css";
 import ExpenseDate from "./ExpenseDate";
 
 const ExpenseItem = (props) => {
     return (
-        <div className="item-container">
+        <div className={`${styles["item-container"]}`}>
             <div>
                 <ExpenseDate date={props.date} />
             </div>

@@ -1,5 +1,5 @@
 import ExpenseItem from "../ExpenseItem/ExpenseItem";
-import "./Expenses.css";
+import styles from "./Expenses.module.css";
 import ExpenseForm from "../ExpenseForm/ExpenseForm";
 import ExpenseFilter from "../ExpenseFilter/ExpenseFilter";
 import React, {useState} from "react";
@@ -37,15 +37,15 @@ const Expenses = (props) => {
 
     return (
         <div>
-            <div className="button__form-container">
-                <h1 className="main-title">EXPENSES TRACKER</h1>
-                <h6 className="main-subtitle">Keep tracked your expenses!</h6>
-                {!isEditing && <button className="new-expense-button" onClick={startEditingHandler}>Add Expense</button>}
+            <div className={`${styles["button__form-container"]}`}>
+                <h1 className={`${styles["main-title"]}`}>EXPENSES TRACKER</h1>
+                <h6 className={`${styles["main-subtitle"]}`}>Keep tracked your expenses!</h6>
+                {!isEditing && <button className={`${styles["new-expense-button"]}`} onClick={startEditingHandler}>Add Expense</button>}
             </div>
             {isEditing && <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} stopEditing={stopEditingHandler}/>}
             <ExpensesChart expenses={filteredExpenses} />
             <ExpenseFilter onFilterChange={filterChangeHandler} startDate={filterDate}/>
-            <div className="expenses-container">
+            <div className={`${styles["expenses-container"]}`}>
                 {filteredExpenses.map((element) => (<ExpenseItem key={element.id} title={element.title} amount={element.amount} date={element.date} />))}
             </div>
         </div>

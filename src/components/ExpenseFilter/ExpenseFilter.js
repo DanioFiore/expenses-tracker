@@ -1,4 +1,4 @@
-import "./ExpenseFilter.css";
+import styles from "./ExpenseFilter.module.css";
 
 const ExpenseFilter = (props) => {
 
@@ -7,8 +7,8 @@ const ExpenseFilter = (props) => {
         props.onFilterChange(filteredYear);
     } 
     return (
-        <div className='expenses-filter'>
-            <div className='expenses-filter__control'>
+        <div className={`${styles['expenses-filter']}`}>
+            <div>
                 <label>Filter by year</label>
                 <select onChange={dropdownChangeHandler} value={props.startDate}>
                     <option value='2022'>2022</option>

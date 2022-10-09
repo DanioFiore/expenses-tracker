@@ -31,3 +31,7 @@
     padding: 0.5rem;
     border-radius: 10px;
 }
+
+.invalid {
+    background-color: rgb(234, 77, 77);
+}

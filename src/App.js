@@ -72,9 +72,15 @@ function App() {
     })
   }
 
+  const deleteItemHandler = (itemId) => {
+    setExpenses(prevExpenses => {
+      return prevExpenses.filter(expense => expense.id !== itemId)
+    })
+  }
+
   return (
     <div className="App">
-      <Expenses items={expenses} addExpense={addExpenseHandler} />
+      <Expenses items={expenses} addExpense={addExpenseHandler} deleteItem={deleteItemHandler}/>
     </div>
   );
 }

@@ -35,6 +35,14 @@ const Expenses = (props) => {
         setIsEditing(false);
     }
 
+
+    let content = <p style={{textAlign: 'center'}}>No Expenses for this year.</p>
+    if(filteredExpenses.length > 0) {
+        content = filteredExpenses.map((element) => (<ExpenseItem id={element.id} key={element.id} title={element.title} amount={element.amount} date={element.date} onDelete={props.deleteItem} />))
+    }
+
+  
+
     return (
         <div>
             <div className={`${styles["button__form-container"]}`}>
@@ -46,7 +54,7 @@ const Expenses = (props) => {
             <ExpensesChart expenses={filteredExpenses} />
             <ExpenseFilter onFilterChange={filterChangeHandler} startDate={filterDate}/>
             <div className={`${styles["expenses-container"]}`}>
-                {filteredExpenses.map((element) => (<ExpenseItem key={element.id} title={element.title} amount={element.amount} date={element.date} />))}
+                {content}
             </div>
         </div>
 

@@ -4,6 +4,7 @@ import ExpenseForm from "../ExpenseForm/ExpenseForm";
 import ExpenseFilter from "../ExpenseFilter/ExpenseFilter";
 import React, {useState} from "react";
 import ExpensesChart from "../Chart/ExpensesChart";
+import Button from "../UI/Button";
 
 const Expenses = (props) => {
     const onSaveExpenseDataHandler = (enteredExpenseData) => {
@@ -48,7 +49,7 @@ const Expenses = (props) => {
             <div className={`${styles["button__form-container"]}`}>
                 <h1 className={`${styles["main-title"]}`}>EXPENSES TRACKER</h1>
                 <h6 className={`${styles["main-subtitle"]}`}>Keep tracked your expenses!</h6>
-                {!isEditing && <button className={`${styles["new-expense-button"]}`} onClick={startEditingHandler}>Add Expense</button>}
+                {!isEditing && <Button className={`${styles["new-expense-button"]}`} onClick={startEditingHandler}>Add Expense</Button>}
             </div>
             {isEditing && <ExpenseForm onSaveExpenseData={onSaveExpenseDataHandler} stopEditing={stopEditingHandler}/>}
             <ExpensesChart expenses={filteredExpenses} />

@@ -1,6 +1,7 @@
 import styles from "./ExpenseForm.module.css";
 import React, { useState } from "react";
 import ErrorModal from "../UI/ErrorModal";
+import Button from "../UI/Button";
 
 const ExpenseForm = (props) => {
     const [titleInput, setTitleInput] = useState('')
@@ -67,8 +68,8 @@ const ExpenseForm = (props) => {
                         <input type="date" className={`${styles["input-form"]}`} value={dateInput} min="2019-01-01" max="2022-12-31" onChange={inputDateChangeHandler} />
                     </div>
                     <div className={`${styles["button-form__submit"]}`}>
-                        <button className="submit-button" type="submit">Submit</button>
-                        <button className="cancel-button" type="button" onClick={props.stopEditing}>Cancel</button>
+                        <Button className={`${styles['submit-button']}`} type='submit'>Submit</Button>
+                        <Button className={`${styles['cancel-button']}`} onClick={props.stopEditing}>Cancel</Button>
                     </div>
                 </form>
             </div>

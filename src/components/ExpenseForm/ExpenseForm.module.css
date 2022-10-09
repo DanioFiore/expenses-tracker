@@ -13,6 +13,7 @@
 
 .input-form {
     height: 2rem;
+    border-radius: 10px;
 }
 
 .button-form__submit {
@@ -26,10 +27,18 @@
     background: radial-gradient(circle, rgba(233,238,174,1) 0%, rgba(114,226,82,1) 81%);
 }
 
+.submit-button:hover {
+    cursor: pointer;
+}
+
 .cancel-button {
     background: linear-gradient(90deg, rgba(232,226,127,1) 0%, rgba(253,29,29,1) 100%);
     padding: 0.5rem;
     border-radius: 10px;
+}
+
+.cancel-button:hover {
+    cursor: pointer;
 }
 
 .invalid {

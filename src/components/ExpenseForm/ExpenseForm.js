@@ -51,7 +51,7 @@ const ExpenseForm = (props) => {
     }
 
     return (
-        <div>
+        <React.Fragment>
             {error && <ErrorModal onConfirm={errorHandler} title={error.title} message={error.message}/>}
             <div className={`${styles["form-container"]} ${!isValid && styles.invalid}`}>
                 <form onSubmit={submitNewExpenseHandler}>
@@ -73,9 +73,10 @@ const ExpenseForm = (props) => {
                     </div>
                 </form>
             </div>
-        </div>
+        </React.Fragment>
 
     );
 }
 
 export default ExpenseForm;
+

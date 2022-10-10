@@ -1,6 +1,6 @@
 import './App.css';
 import Expenses from './components/Expenses/Expenses';
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 
 function App() {
   const DUMMY_EXPENSES = [
@@ -79,9 +79,9 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <Fragment>
       <Expenses items={expenses} addExpense={addExpenseHandler} deleteItem={deleteItemHandler}/>
-    </div>
+    </Fragment>
   );
 }
 

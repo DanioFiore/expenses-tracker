@@ -45,7 +45,7 @@ const Expenses = (props) => {
   
 
     return (
-        <div>
+        <React.Fragment>
             <div className={`${styles["button__form-container"]}`}>
                 <h1 className={`${styles["main-title"]}`}>EXPENSES TRACKER</h1>
                 <h6 className={`${styles["main-subtitle"]}`}>Keep tracked your expenses!</h6>
@@ -57,7 +57,7 @@ const Expenses = (props) => {
             <div className={`${styles["expenses-container"]}`}>
                 {content}
             </div>
-        </div>
+        </React.Fragment>
 
     )
 }

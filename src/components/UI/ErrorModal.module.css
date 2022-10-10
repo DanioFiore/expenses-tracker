@@ -26,3 +26,7 @@
     border-radius: 10px;
     background-color: aquamarine;
 }
+
+.button:hover{
+	cursor: pointer;
+}

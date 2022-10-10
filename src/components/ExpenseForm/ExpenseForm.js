@@ -1,23 +1,12 @@
 import styles from "./ExpenseForm.module.css";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import ErrorModal from "../UI/ErrorModal";
 import Button from "../UI/Button";
 
 const ExpenseForm = (props) => {
-    const [titleInput, setTitleInput] = useState('')
-    const inputTitleChangeHandler = (event) => {
-        setTitleInput(event.target.value);
-    }
-
-    const [amountInput, setAmountInput] = useState('')
-    const inputAmountChangeHandler = (event) => {
-        setAmountInput(event.target.value);
-    }
-
-    const [dateInput, setDateInput] = useState('')
-    const inputDateChangeHandler = (event) => {
-        setDateInput(event.target.value);
-    }
+    const titleInputRef = useRef();
+    const amountInputRef = useRef();
+    const dateInputRef = useRef();
 
     const [isValid, setIsValid] = useState(true)
     const [error, setError] = useState();
@@ -28,7 +17,11 @@ const ExpenseForm = (props) => {
 
     const submitNewExpenseHandler = (event) => {
         event.preventDefault();
-        if (titleInput.trim().length === 0 || amountInput.trim().length === 0 || dateInput.trim().length === 0) {
+        const enteredTitle = titleInputRef.current.value;
+        const enteredAmount = amountInputRef.current.value;
+        const enteredDate = dateInputRef.current.value;
+
+        if (enteredTitle.trim().length === 0 || enteredAmount.trim().length === 0 || enteredDate.trim().length === 0) {
             setIsValid(false);
             setError({
                 title:'An error occured!', 
@@ -38,15 +31,14 @@ const ExpenseForm = (props) => {
         }
 
         const expenseData = {
-            title: titleInput,
-            amount: +amountInput,
-            date: new Date(dateInput),
+            title: enteredTitle,
+            amount: +enteredAmount,
+            date: new Date(enteredDate),
         }
         props.onSaveExpenseData(expenseData)
-        setTitleInput('')
-        setAmountInput('')
-        setDateInput('')
-
+        titleInputRef.current.value = '';
+		amountInputRef.current.value = '';
+		dateInputRef.current.value = '';
         setIsValid(true);
     }
 
@@ -57,15 +49,15 @@ const ExpenseForm = (props) => {
                 <form onSubmit={submitNewExpenseHandler}>
                     <div className={`${styles["input-form__container"]}`}>
                         <label>Title</label>
-                        <input type="text" className={`${styles["input-form"]}`} value={titleInput} onChange={inputTitleChangeHandler} />
+                        <input type="text" className={`${styles["input-form"]}`} ref={titleInputRef} />
                     </div>
                     <div className={`${styles["input-form__container"]}`}>
                         <label>Amount</label>
-                        <input type="number" min="0.01" step="0.01" className={`${styles["input-form"]}`} value={amountInput} onChange={inputAmountChangeHandler} />
+                        <input type="number" min="0.01" step="0.01" className={`${styles["input-form"]}`} ref={amountInputRef} />
                     </div>
                     <div className={`${styles["input-form__container"]}`}>
                         <label>Date</label>
-                        <input type="date" className={`${styles["input-form"]}`} value={dateInput} min="2019-01-01" max="2022-12-31" onChange={inputDateChangeHandler} />
+                        <input type="date" className={`${styles["input-form"]}`} min="2019-01-01" max="2022-12-31" ref={dateInputRef} />
                     </div>
                     <div className={`${styles["button-form__submit"]}`}>
                         <Button className={`${styles['submit-button']}`} type='submit'>Submit</Button>
